@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  bonjour-proxy:
+    build: .
+    container_name: bonjour-proxy
+    network_mode: host  # permet de capter les annonces mDNS sur le réseau
+    restart: unless-stopped
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
