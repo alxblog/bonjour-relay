@@ -1,9 +1,11 @@
-FROM node:20-alpine
+version: "3.7"
 
-WORKDIR /app
-COPY . .
-
-RUN npm install
-
-EXPOSE 5353/udp
-CMD ["node", "index.js"]
+services:
+  bonjour-proxy:
+    build: .
+    container_name: bonjour-proxy
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    restart: unless-stopped
