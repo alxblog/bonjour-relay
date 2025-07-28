@@ -2,8 +2,10 @@ version: "3.7"
 services:
   bonjour-proxy:
     build: .
+    environment:
+      - BONJOUR_PROXY_URL=http://server-ip-addr:8080/services
     container_name: bonjour-proxy
-    network_mode: host  # permet de capter les annonces mDNS sur le réseau
+    network_mode: host # permet de capter les annonces mDNS sur le réseau
     restart: unless-stopped
     cap_add:
       - NET_RAW

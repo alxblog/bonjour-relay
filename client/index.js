@@ -3,7 +3,7 @@ import bonjour from "bonjour";
 import os from "os";
 
 // Config : à adapter si besoin
-const SERVER_URL = process.env.BONJOUR_PROXY_URL || "http://adresse-ip-du-nas:8080/services";
+const SERVER_URL = process.env.BONJOUR_PROXY_URL || "http://adresse-ip-du-server:8080/services";
 const POLL_INTERVAL = 10_000; // en ms
 
 const bonjourInstance = bonjour();
